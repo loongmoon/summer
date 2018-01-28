@@ -26,8 +26,15 @@ public class BeanDefinitionTest {
     public void test() {
         BeanFactory beanFactory = new AutoWireCapalbeBeanFactory();
 
+        // bean定义
         BeanDefinition beanDefinition = new BeanDefinition();
         beanDefinition.setBeanClassName("com.zhao.summer.UserService");
+
+        // 设置bean属性
+        PropertyValues propertyValues = new PropertyValues();
+        propertyValues.getPropertyValueList().add(new PropertyValue("text", "hello world"));
+        beanDefinition.setPropertyValues(propertyValues);
+
         beanFactory.registryBeanDefinition("userService", beanDefinition);
 
         UserService userService = (UserService) beanFactory.getBean("userService");

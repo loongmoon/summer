@@ -17,7 +17,14 @@ package com.zhao.summer;
  * @since JDK 1.8
  */
 public class UserService {
+
+    private String text;
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
     public void hello() {
-        System.out.println("hello world!");
+        System.out.println(text);
     }
 }
