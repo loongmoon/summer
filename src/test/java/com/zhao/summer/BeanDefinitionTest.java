@@ -7,6 +7,8 @@
  */
 package com.zhao.summer;
 
+import com.zhao.summer.factory.AutoWireCapalbeBeanFactory;
+import com.zhao.summer.factory.BeanFactory;
 import org.junit.Test;
 
 /**
@@ -22,9 +24,10 @@ public class BeanDefinitionTest {
 
     @Test
     public void test() {
-        BeanFactory beanFactory = new BeanFactory();
+        BeanFactory beanFactory = new AutoWireCapalbeBeanFactory();
 
-        BeanDefinition beanDefinition = new BeanDefinition(new UserService());
+        BeanDefinition beanDefinition = new BeanDefinition();
+        beanDefinition.setBeanClassName("com.zhao.summer.UserService");
         beanFactory.registryBeanDefinition("userService", beanDefinition);
 
         UserService userService = (UserService) beanFactory.getBean("userService");
