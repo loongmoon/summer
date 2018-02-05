@@ -6,6 +6,6 @@ public interface BeanFactory {
 
     Object getBean(String name);
 
-    void registryBeanDefinition(String name, BeanDefinition beanDefinition);
+    void registerBeanDefinition(String name, BeanDefinition beanDefinition) throws Exception;
 
 }

@@ -7,7 +7,7 @@
  */
 package com.zhao.summer;
 
-import com.zhao.summer.factory.AutoWireCapalbeBeanFactory;
+import com.zhao.summer.factory.AutowireCapableBeanFactory;
 import com.zhao.summer.factory.BeanFactory;
 import org.junit.Test;
 
@@ -23,8 +23,8 @@ import org.junit.Test;
 public class BeanDefinitionTest {
 
     @Test
-    public void test() {
-        BeanFactory beanFactory = new AutoWireCapalbeBeanFactory();
+    public void test() throws Exception {
+        BeanFactory beanFactory = new AutowireCapableBeanFactory();
 
         // bean定义
         BeanDefinition beanDefinition = new BeanDefinition();
@@ -35,7 +35,7 @@ public class BeanDefinitionTest {
         propertyValues.getPropertyValueList().add(new PropertyValue("text", "hello world"));
         beanDefinition.setPropertyValues(propertyValues);
 
-        beanFactory.registryBeanDefinition("userService", beanDefinition);
+        beanFactory.registerBeanDefinition("userService", beanDefinition);
 
         UserService userService = (UserService) beanFactory.getBean("userService");
         userService.hello();
