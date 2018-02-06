@@ -1,6 +1,7 @@
 package com.zhao.summer.factory;
 
 import com.zhao.summer.BeanDefinition;
+import com.zhao.summer.BeanReference;
 import com.zhao.summer.PropertyValue;
 
 import java.lang.reflect.Field;
@@ -24,7 +25,12 @@ public class AutowireCapableBeanFactory extends AbstractBeanFactory {
         for (PropertyValue propertyValue : mbd.getPropertyValues().getPropertyValueList()) {
             Field declaredField = bean.getClass().getDeclaredField(propertyValue.getName());
             declaredField.setAccessible(true);
-            declaredField.set(bean, propertyValue.getValue());
+            Object value = propertyValue.getValue();
+            if (value instanceof BeanReference) {
+                BeanReference beanReference = (BeanReference) value;
+                value = beanReference.getBean();
+            }
+            declaredField.set(bean, value);
         }
     }
 

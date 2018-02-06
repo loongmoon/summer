@@ -9,6 +9,7 @@ package com.zhao.summer.xml;
 
 import com.zhao.summer.AbstractBeanDefinitionReader;
 import com.zhao.summer.BeanDefinition;
+import com.zhao.summer.BeanReference;
 import com.zhao.summer.PropertyValue;
 import com.zhao.summer.io.ResourceLoader;
 import org.w3c.dom.Document;
@@ -65,7 +66,18 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
                         Element propertyEle = (Element) property;
                         String propertyName = propertyEle.getAttribute("name");
                         String propertyValue = propertyEle.getAttribute("value");
-                        beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(propertyName, propertyValue));
+                        if (propertyValue != null && propertyValue.length() > 0) {
+                            beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(propertyName, propertyValue));
+                        } else {
+                            String ref = propertyEle.getAttribute("ref");
+                            if (ref == null || ref.length() == 0) {
+                                throw new IllegalArgumentException("Configuration problem: <property> element for property '"
+                                        + propertyName + "' must specify a ref or value");
+                            }
+                            BeanReference beanReference = new BeanReference(ref);
+                            beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(name, beanReference));
+                        }
+
                     }
                 }
 

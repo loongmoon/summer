@@ -8,6 +8,7 @@
 package com.zhao.summer;
 
 
+import com.zhao.summer.factory.AbstractBeanFactory;
 import com.zhao.summer.factory.AutowireCapableBeanFactory;
 import com.zhao.summer.factory.BeanFactory;
 import com.zhao.summer.io.ResourceLoader;
@@ -30,7 +31,7 @@ import java.util.Map;
 public class BeanFactoryTest {
 
     @org.junit.Test
-    public void test() throws Exception {
+    public void testLazy() throws Exception {
         // 1.读取配置
         XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(new ResourceLoader());
         xmlBeanDefinitionReader.loadBeanDefinitions("tinyioc.xml");
@@ -42,6 +43,26 @@ public class BeanFactoryTest {
         }
 
         // 3.获取bean
+        UserService userService = (UserService) beanFactory.getBean("userService");
+        userService.hello();
+    }
+
+    @org.junit.Test
+    public void testPreInstantiate() throws Exception {
+        // 1.读取配置
+        XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(new ResourceLoader());
+        xmlBeanDefinitionReader.loadBeanDefinitions("tinyioc.xml");
+
+        // 2.初始化BeanFactory并注册bean
+        AbstractBeanFactory beanFactory = new AutowireCapableBeanFactory();
+        for (Map.Entry<String, BeanDefinition> beanDefinitionEntry : xmlBeanDefinitionReader.getRegistry().entrySet()) {
+            beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
+        }
+
+        // 3.初始化bean
+        beanFactory.preInstantiateSingletons();
+
+        // 4.获取bean
         UserService userService = (UserService) beanFactory.getBean("userService");
         userService.hello();
     }
