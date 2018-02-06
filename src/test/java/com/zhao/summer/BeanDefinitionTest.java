@@ -7,8 +7,12 @@
  */
 package com.zhao.summer;
 
-import com.zhao.summer.factory.AutowireCapableBeanFactory;
-import com.zhao.summer.factory.BeanFactory;
+import com.zhao.summer.beans.BeanDefinition;
+import com.zhao.summer.beans.PropertyValue;
+import com.zhao.summer.beans.PropertyValues;
+import com.zhao.summer.beans.factory.AbstractBeanFactory;
+import com.zhao.summer.beans.factory.AutowireCapableBeanFactory;
+import com.zhao.summer.beans.factory.BeanFactory;
 import org.junit.Test;
 
 /**
@@ -24,7 +28,7 @@ public class BeanDefinitionTest {
 
     @Test
     public void test() throws Exception {
-        BeanFactory beanFactory = new AutowireCapableBeanFactory();
+        AbstractBeanFactory beanFactory = new AutowireCapableBeanFactory();
 
         // bean定义
         BeanDefinition beanDefinition = new BeanDefinition();

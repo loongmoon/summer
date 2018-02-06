@@ -1,4 +1,4 @@
-package com.zhao.summer.io;
+package com.zhao.summer.beans.io;
 
 import java.io.IOException;
 import java.io.InputStream;

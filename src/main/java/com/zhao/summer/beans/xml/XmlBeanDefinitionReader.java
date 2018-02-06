@@ -1,17 +1,17 @@
 /**
  * Project Name:summer
  * File Name:XmlBeanDefinitionReader
- * Package Name:com.zhao.summer.xml
+ * Package Name:com.zhao.summer.beans.xml
  * Date:2018/2/5 10:26
  * Copyright (c) 2018, Neoglory-FBA All Rights Reserved.
  */
-package com.zhao.summer.xml;
+package com.zhao.summer.beans.xml;
 
-import com.zhao.summer.AbstractBeanDefinitionReader;
-import com.zhao.summer.BeanDefinition;
+import com.zhao.summer.beans.AbstractBeanDefinitionReader;
+import com.zhao.summer.beans.BeanDefinition;
 import com.zhao.summer.BeanReference;
-import com.zhao.summer.PropertyValue;
-import com.zhao.summer.io.ResourceLoader;
+import com.zhao.summer.beans.PropertyValue;
+import com.zhao.summer.beans.io.ResourceLoader;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

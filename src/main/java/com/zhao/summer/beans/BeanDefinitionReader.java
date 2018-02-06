@@ -1,4 +1,4 @@
-package com.zhao.summer;
+package com.zhao.summer.beans;
 
 import org.xml.sax.SAXException;
 

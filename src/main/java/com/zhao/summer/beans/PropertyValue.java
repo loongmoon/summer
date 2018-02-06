@@ -1,4 +1,4 @@
-package com.zhao.summer;
+package com.zhao.summer.beans;
 
 /**
  * Created by loongmoon on 18/1/28

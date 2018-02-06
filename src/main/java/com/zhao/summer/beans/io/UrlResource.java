@@ -1,11 +1,11 @@
 /**
  * Project Name:summer
  * File Name:UrlResource
- * Package Name:com.zhao.summer.io
+ * Package Name:com.zhao.summer.beans.io
  * Date:2018/1/31 15:49
  * Copyright (c) 2018, Neoglory-FBA All Rights Reserved.
  */
-package com.zhao.summer.io;
+package com.zhao.summer.beans.io;
 
 import java.io.IOException;
 import java.io.InputStream;

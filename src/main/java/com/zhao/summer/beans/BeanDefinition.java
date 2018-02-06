@@ -5,7 +5,7 @@
  * Date:2018/1/26 15:44
  * Copyright (c) 2018, Neoglory-FBA All Rights Reserved.
  */
-package com.zhao.summer;
+package com.zhao.summer.beans;
 
 /**
  * ClassName: BeanDefinition <br/>

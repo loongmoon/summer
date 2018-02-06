@@ -5,9 +5,9 @@
  * Date:2018/2/5 10:29
  * Copyright (c) 2018, Neoglory-FBA All Rights Reserved.
  */
-package com.zhao.summer;
+package com.zhao.summer.beans;
 
-import com.zhao.summer.io.ResourceLoader;
+import com.zhao.summer.beans.io.ResourceLoader;
 
 import java.util.HashMap;
 import java.util.Map;

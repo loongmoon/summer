@@ -1,13 +1,11 @@
-package com.zhao.summer.xml;
+package com.zhao.summer.beans.xml;
 
-import com.zhao.summer.BeanDefinition;
-import com.zhao.summer.io.ResourceLoader;
+import com.zhao.summer.beans.BeanDefinition;
+import com.zhao.summer.beans.io.ResourceLoader;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Map;
-
-import static org.junit.Assert.*;
 
 /**
  * ClassName: XmlBeanDefinitionReaderTest <br/>

@@ -8,15 +8,13 @@
 package com.zhao.summer;
 
 
-import com.zhao.summer.factory.AbstractBeanFactory;
-import com.zhao.summer.factory.AutowireCapableBeanFactory;
-import com.zhao.summer.factory.BeanFactory;
-import com.zhao.summer.io.ResourceLoader;
-import com.zhao.summer.xml.XmlBeanDefinitionReader;
-import org.xml.sax.SAXException;
+import com.zhao.summer.beans.BeanDefinition;
+import com.zhao.summer.beans.factory.AbstractBeanFactory;
+import com.zhao.summer.beans.factory.AutowireCapableBeanFactory;
+import com.zhao.summer.beans.factory.BeanFactory;
+import com.zhao.summer.beans.io.ResourceLoader;
+import com.zhao.summer.beans.xml.XmlBeanDefinitionReader;
 
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -37,7 +35,7 @@ public class BeanFactoryTest {
         xmlBeanDefinitionReader.loadBeanDefinitions("tinyioc.xml");
 
         // 2.初始化BeanFactory并注册bean
-        BeanFactory beanFactory = new AutowireCapableBeanFactory();
+        AbstractBeanFactory beanFactory = new AutowireCapableBeanFactory();
         for (Map.Entry<String, BeanDefinition> beanDefinitionEntry : xmlBeanDefinitionReader.getRegistry().entrySet()) {
             beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
         }

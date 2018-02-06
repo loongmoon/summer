@@ -1,8 +1,8 @@
-package com.zhao.summer.factory;
+package com.zhao.summer.beans.factory;
 
-import com.zhao.summer.BeanDefinition;
+import com.zhao.summer.beans.BeanDefinition;
 import com.zhao.summer.BeanReference;
-import com.zhao.summer.PropertyValue;
+import com.zhao.summer.beans.PropertyValue;
 
 import java.lang.reflect.Field;
 

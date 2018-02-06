@@ -5,9 +5,9 @@
  * Date:2018/1/26 15:46
  * Copyright (c) 2018, Neoglory-FBA All Rights Reserved.
  */
-package com.zhao.summer.factory;
+package com.zhao.summer.beans.factory;
 
-import com.zhao.summer.BeanDefinition;
+import com.zhao.summer.beans.BeanDefinition;
 
 import java.util.ArrayList;
 import java.util.Iterator;
